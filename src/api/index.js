@@ -12,7 +12,7 @@ export const fetchData = async country => {
 	try {
 		const {
 			data: { confirmed, recovered, deaths, lastUpdate },
-		} = await axios.get(url);
+		} = await axios.get(changeableUrl);
 
 		const modifiedData = {
 			confirmed,
@@ -22,7 +22,9 @@ export const fetchData = async country => {
 		};
 
 		return modifiedData;
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 export const fetchDailyData = async () => {
@@ -34,7 +36,9 @@ export const fetchDailyData = async () => {
 			date: dailyData.reportDate,
 		}));
 		return modifiedData;
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 export const fetchCountries = async () => {
